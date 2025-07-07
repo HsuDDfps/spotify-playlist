@@ -2,114 +2,114 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <title>HsuDD’s Spotify</title>
+  <title>HsuDDfps</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="Spotify_Primary_Logo_RGB_Green.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://fav.farm/🖥️" type="image/x-icon">
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', 'Noto Sans TC', sans-serif;
-      background: url('Index_BG_FULL.png') no-repeat center center fixed;
+      background-color: #111;
+      background-image: url("Index_BG.jpg");
       background-size: cover;
-      color: white;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #fff;
+      font-family: "Arial", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
       text-align: center;
     }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(8px);
-      z-index: -1;
-    }
-
     h1 {
-      margin-top: 60px;
       font-size: 2rem;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+      margin: 0;
+      font-weight: bold;
     }
-
-    .playlist-container {
+    .subtitle {
+      font-size: 1.8rem;
+      margin-top: 0.5rem;
+      color: #fff;
+      font-weight: bold;
+    }
+    .timestamp {
+      color: #888;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    .button-container {
+      margin-top: 2rem;
       display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin: 60px auto;
+      gap: 1rem;
       flex-wrap: wrap;
-      max-width: 1000px;
-      padding: 0 20px;
+      justify-content: center;
     }
-
-    .playlist-card {
-      background-color: rgba(255, 255, 255, 0.05);
-      border: 2px solid #1DB954;
-      border-radius: 20px;
-      width: 360px;
-      overflow: hidden;
-      text-align: left;
-      transition: transform 0.3s ease;
+    .button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1.05rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #6dcff4;
+      border: none;
+      border-radius: 999px;
       cursor: pointer;
       text-decoration: none;
-      color: white;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.2s ease;
+      text-shadow: 0 0 3px #005d7e;
     }
-
-    .playlist-card:hover {
-      transform: scale(1.03);
+    .button:hover {
+      background-color: #4ebbdc;
     }
-
-    .playlist-image {
-      width: 100%;
-      height: 360px;
-      object-fit: cover;
-    }
-
-    .playlist-info {
-      padding: 16px;
-    }
-
-    .playlist-title {
-      font-size: 1.3rem;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    .playlist-desc {
-      font-size: 0.95rem;
-      color: #ccc;
-    }
-
-    @media (max-width: 768px) {
-      .playlist-card {
-        width: 90%;
-      }
+    .notification {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #8f8;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h1>HsuDD’s Spotify Playlists</h1>
-  <div class="playlist-container">
-    <!-- 改為本地圖片 -->
-    <a href="https://open.spotify.com/playlist/6Q3qrd0t9Br90w9VtIiCwx" target="_blank" class="playlist-card">
-      <img class="playlist-image" src="hippop-cover.jpg" alt="Hip Pop Cover" />
-      <div class="playlist-info">
-        <div class="playlist-title">🎵 Hip Pop (2025 Updated)</div>
-        <div class="playlist-desc">徐滴滴專屬推薦，最火、最帥的饒舌風格合集。</div>
-      </div>
-    </a>
+  <h1>此網域為 HsuDDfps 所有</h1>
+  <div class="subtitle">歡迎有 DNS 掛載需求與我聯絡！</div>
+  <div class="timestamp" id="timestamp"></div>
 
-    <a href="https://open.spotify.com/playlist/18Kvd7K7hKuj6FUP1Bp1df" target="_blank" class="playlist-card">
-      <img class="playlist-image" src="favorites-cover.jpg" alt="Favorites Cover" />
-      <div class="playlist-info">
-        <div class="playlist-title">💖 Favorites (2025 Updated)</div>
-        <div class="playlist-desc">徐滴滴私人珍藏，風格多變，一聽就愛上。</div>
-      </div>
-    </a>
+  <div class="button-container">
+    <button class="button" onclick="copyDiscord()">在 Discord 上新增我為好友</button>
+    <a class="button" href="https://status.hsuddfps.com/" target="_blank">小徐麥塊伺服器連線狀態查詢</a>
+    <a class="button" href="https://spotify.hsuddfps.com/" target="_blank">徐滴滴專屬 Spotify 歌單</a>
   </div>
+
+  <div class="notification" id="notification">
+    已複製 HsuDDfps 的 Discord ID，請前往 Discord 加為好友！
+  </div>
+
+  <script>
+    function updateTimestamp() {
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, '0');
+      const dd = String(now.getDate()).padStart(2, '0');
+      const hh = String(now.getHours()).padStart(2, '0');
+      const min = String(now.getMinutes()).padStart(2, '0');
+      const ss = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('timestamp').textContent =
+        `${yyyy}-${mm}-${dd} ${hh}:${min}:${ss}`;
+    }
+
+    function copyDiscord() {
+      const discordId = 'hsudd_fps';
+      navigator.clipboard.writeText(discordId).then(() => {
+        const notice = document.getElementById('notification');
+        notice.style.display = 'block';
+        setTimeout(() => {
+          notice.style.display = 'none';
+        }, 3000);
+      });
+    }
+
+    updateTimestamp();
+    setInterval(updateTimestamp, 1000);
+  </script>
 </body>
 </html>
