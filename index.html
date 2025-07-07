@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>HsuDD’s Spotify</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       margin: 0;
@@ -13,49 +13,102 @@
       background-size: cover;
       color: white;
       text-align: center;
+      position: relative;
     }
+
+    /* 背景遮罩 */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      z-index: -1;
+    }
+
     h1 {
-      margin-top: 80px;
+      margin-top: 60px;
       font-size: 3rem;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
     }
+
     .playlist-container {
       display: flex;
       justify-content: center;
       gap: 40px;
-      margin-top: 60px;
+      margin: 60px auto;
       flex-wrap: wrap;
+      max-width: 1000px;
+      padding: 0 20px;
     }
-    .playlist-box {
-      width: 300px;
-      height: 180px;
-      background-color: rgba(0, 0, 0, 0.6);
+
+    .playlist-card {
+      background-color: rgba(255, 255, 255, 0.1);
       border: 2px solid #1DB954;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
+      border-radius: 16px;
+      width: 280px;
+      overflow: hidden;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
-      transition: transform 0.2s, background-color 0.3s;
       text-decoration: none;
       color: white;
     }
-    .playlist-box:hover {
-      background-color: rgba(30, 215, 96, 0.8);
-      transform: scale(1.05);
-      color: black;
+
+    .playlist-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    .playlist-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .playlist-info {
+      padding: 16px;
+    }
+
+    .playlist-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .playlist-desc {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .playlist-card {
+        width: 90%;
+      }
     }
   </style>
 </head>
 <body>
   <h1>HsuDD’s Spotify Playlists</h1>
   <div class="playlist-container">
-    <a href="https://open.spotify.com/playlist/6Q3qrd0t9Br90w9VtIiCwx?si=b5f1119328244aec&pt=172d300c8eae7dc91f147f6eeda8d1d4" target="_blank" class="playlist-box">
-      🎵 Hip Pop (2025 Updated)
+    <!-- 播放清單卡片 1 -->
+    <a href="https://open.spotify.com/playlist/6Q3qrd0t9Br90w9VtIiCwx" target="_blank" class="playlist-card">
+      <img class="playlist-image" src="https://i.scdn.co/image/ab67706c0000bebb95eec11c8ff7b8e70562c6e2" alt="Hip Pop Cover" />
+      <div class="playlist-info">
+        <div class="playlist-title">🎵 Hip Pop (2025 Updated)</div>
+        <div class="playlist-desc">徐滴滴專屬推薦，最火的節奏，最帥的饒舌風格合集。</div>
+      </div>
     </a>
-    <a href="https://open.spotify.com/playlist/18Kvd7K7hKuj6FUP1Bp1df?si=fb2a82b6970c474d&pt=a49229e111509b4e43f83a91580143b2" target="_blank" class="playlist-box">
-      🎶 Favorites (2025 Updated)
+
+    <!-- 播放清單卡片 2 -->
+    <a href="https://open.spotify.com/playlist/18Kvd7K7hKuj6FUP1Bp1df" target="_blank" class="playlist-card">
+      <img class="playlist-image" src="https://i.scdn.co/image/ab67706c0000bebb29f61f7208ed03d7cb0cfa6f" alt="Favorites Cover" />
+      <div class="playlist-info">
+        <div class="playlist-title">💖 Favorites (2025 Updated)</div>
+        <div class="playlist-desc">私人珍藏，風格多變，一聽就愛上。</div>
+      </div>
     </a>
   </div>
 </body>
